@@ -26,6 +26,7 @@ resource "aws_vpc" "main" {
     Environment = var.environment
     ManagedBy   = "terraform"
     Pipeline    = "github-actions"
+    CostCenter  = "engineering"
   }
 }
 
@@ -80,4 +81,5 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
 }
+
 
